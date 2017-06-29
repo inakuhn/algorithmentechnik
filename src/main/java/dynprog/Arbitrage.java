@@ -54,7 +54,7 @@ public class Arbitrage {
 						table[i][j] = table[i][k] * table[k][j];
 						pred[i][j] = pred[k][j];
 						if(i == j && table[i][j] >= MIN_WIN){
-							System.out.printf("W�hrung %d:%n", i+1);
+							System.out.printf("Währung %d:%n", i+1);
 							System.out.printf(" %d ", i+1);
 							recoverPath(pred, i, i);
 							System.out.printf(" -> %s%n", i+1);

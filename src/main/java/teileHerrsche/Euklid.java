@@ -7,21 +7,24 @@ public final class Euklid {
 	public static void main(String[] args) {
 		
 		// init bsp
-		int[] a = {45, 60, 125, 345, 65, 9875, 4555};
+		int[] a = {60,72};
 		System.out.println(Arrays.toString(a));
-		
+		int klein = findMin(a,0 ,a.length -1 );
+		int big = findMax(a,0, a.length -1);
 		int ggT = euklid(a, 0, a.length-1);
-		System.out.printf("ggT = %d", ggT);
+		System.out.println("ggT = "+ggT);
+		System.out.println("Klein = "+klein);
+		System.out.println("Großte = "+big);
 	}
 	
-	private static final int euklid(int[] a, int l, int r){
-		if(l < r){
-			int m = (l+r) / 2;
-			int x = euklid(a, l, m);
-			int y = euklid(a, m+1, r);
+	private static final int euklid(int[] a, int left, int right){
+		if(left < right){
+			int m = (left+right) / 2;
+			int x = euklid(a, left, m);
+			int y = euklid(a, m+1, right);
 			return gcd(x, y);
 		}
-		return 0 <= l && l < a.length ? a[l] : 0;
+		return 0 <= left && left < a.length ? a[left] : 0;
 	}
 	
 	private static int gcd(int a, int b){
@@ -33,5 +36,25 @@ public final class Euklid {
 		}
 		return a;
 	}
-	
+	public static int findMax(int[] a, int left, int right) {
+		if (left <right) {
+			int m = (left + right) / 2;
+			int x = findMax(a, 0, m);
+			int y = findMax(a,m+1,right);
+			return Math.max(x,y);
+		} else {
+			return  0 <= left && left < a.length ? a[left] : 0;
+		}
+	}
+	public static int findMin(int[] a, int left, int right) {
+		if (left < right) {
+			int m = (left + right) / 2;
+			int x = findMin(a, 0, m);
+			int y = findMin(a,m+1,right);
+			return Math.min(x,y);
+		} else {
+			return  0 <= left && left < a.length ? a[left] : 0;
+		}
+
+	}
 }
