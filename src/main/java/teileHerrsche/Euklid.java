@@ -7,7 +7,7 @@ public final class Euklid {
 	public static void main(String[] args) {
 		
 		// init bsp
-		int[] a = {60,72};
+		int[] a = {60,72, 50, 2, 3};
 		System.out.println(Arrays.toString(a));
 		int klein = findMin(a,0 ,a.length -1 );
 		int big = findMax(a,0, a.length -1);

@@ -14,9 +14,11 @@ public class DreiEck {
 
     static void process(int a[][], int n, int s[][],
                         int vPred[][], int w[]) {
+        //Basis case
         s[0][0] = a[0][0];
         vPred[0][0] = -1;
         for (int i = 1; i < n; i++) {
+            //Down Botter Berechnung
             s[i][0] = a[i][0] + s[i - 1][0];
             vPred[i][0] = 1;
             for (int j = 1; j <= i; j++) {
