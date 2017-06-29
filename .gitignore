@@ -2,4 +2,5 @@
 .idea/*
 *.iml
 target/*
-z_ina/*
+src/main/java/z_ina/*
+
